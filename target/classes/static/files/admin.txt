@@ -1,0 +1,3 @@
+Admin{idA=1, firstNameA='victor', lastNameA='balabanov', mailA='olala@gmail.com', passA='$2a$10$hu8FsnswTlxqB8lgq685FehN7HcYYS3MBBQx1DnqofVt3zkRAExMO', dateRegA=2021-05-12 12:49:21.289, photoA='hfsul,bsq', userAuthorities=1}
+Admin{idA=3, firstNameA='Виктор', lastNameA='Федорович', mailA='fdfrt@gmail.com', passA='$2a$10$hu8FsnswTlxqB8lgq685FehN7HcYYS3MBBQx1DnqofVt3zkRAExMO', dateRegA=2021-05-12 12:49:21.289, photoA='hfsul,bsq', userAuthorities=1}
+Admin{idA=273, firstNameA='Виктор', lastNameA='Федорович', mailA='fedorovich@gmail.com', passA='$2a$10$hu8FsnswTlxqB8lgq685FehN7HcYYS3MBBQx1DnqofVt3zkRAExMO', dateRegA=2021-05-12 12:49:21.289, photoA='hfsul,bsq', userAuthorities=1}

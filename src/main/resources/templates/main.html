@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Cabinet</title>
+    <!-- Main CSS -->
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <!-- Bootstrap 4.2.1 -->
+    <link rel="stylesheet" th:href="@{/css/plugins/bootstrap.min.css}"/>
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- ========== Start Navbar ========== -->
+<nav class="navbar navbar-expand-lg navbar-dark  fixed-top" style="background: rgba(0, 0, 0, 0.5);">
+    <div class="container">
+        <a class="navbar-brand" href="/"><img th:src="@{/img/logo.png}"/> EasyMRO</a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/" th:text="#{home}">Home
+                        <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about" th:text="#{about}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#price" th:text="#{price}">Price</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact" th:text="#{contact}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'?locale=ukr'}"><img th:src="@{/img/language/ukr.ico}"/></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'?locale=en'}"><img th:src="@{/img/language/en.ico}"/></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'?locale=ru'}"><img th:src="@{/img/language/ru.ico}"/></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout" th:text="#{logout}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- ========== End Navbar ========== -->
+<section class="slider d-flex align-items-center" id="slider"  style="background: #a694ff;">
+    <div id="particles-js"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center mt-60">
+            <div class="col-lg-6">
+                <div class="text">
+                    <h1 class="h1-w mb-20" th:text="#{userMain}">User Main Page</h1>
+                    <a href="/user/electricity/start" class="btn-color d-inline-block" th:text="#{takeIn}">Снять показания</a>
+                    <a href="/user/electricity/stop" class="btn-color d-inline-block" th:text="#{stop}">Стоп</a>
+                </div>
+            </div>
+            <div class="col-lg-6" style="background: #ffdfc6;" >
+                <p class="p-bk mb-30">
+                    Time(seconds): <span th:text="${time}">time</span><br>
+                    W = <span th:text="${w}">W</span> kW<br>
+                    E = <span th:text="${e}">E</span> kW*h<br>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!--<h1>User Main Page</h1>
+    W = ( n * 3600 ) / ( Iml * t ) , где t = counter, Iml = 6400,
+    E = W * t
+    <br>
+    <a href="/user/electricity/start">Снять показания</a><br>
+    <label>Time(seconds): </label><span th:text="${time}">time</span><br>
+    <label>W = </label><span th:text="${w}">W</span><br>
+    <label>E = </label><span th:text="${e}">E</span><br>
+    <br>
+    <a href="/user/electricity/stop">Стоп</a>-->
+
+<!-- ========== Start Footer ========== -->
+<footer class="footer">
+    <div class="container text-center text-white">
+        <h2><img th:src="@{/img/logo.png}" alt=""/> EasyMRO</h2>
+        <h2>Easy Meter Readings Online © 2021. All Rights Reserved.</h2>
+    </div>
+</footer>
+<!-- ========== End Footer ========== -->
+
+<!-- ========== JS ========== -->
+<script type="text/javascript" th:href="@{/js/plugins/jquery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:href="@{/js/plugins/bootstrap.min.js}"></script>
+<!-- Smooth Scrolling -->
+<script type="text/javascript" th:href="@{/js/plugins/jquery.smoothscroll.min.js}"></script>
+<!-- Magnific Popup -->
+<script type="text/javascript" th:href="@{/js/plugins/app.js}"></script>
+<script type="text/javascript" th:href="@{/js/main.js}"></script>
+</body>
+</html>

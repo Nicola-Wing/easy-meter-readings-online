@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tariff Add</title>
+</head>
+<body>
+<h1>Register Tariff</h1>
+
+<form method="post" >
+    <div th:object="${tariff}">
+        <label>Name:&nbsp;</label>
+        <input type="text" th:field="*{nameT}" class="form-control"><br>
+        <label>Info:&nbsp;</label>
+        <input type="text" th:field="*{infoT}" class="form-control"><br>
+        <label>Price:&nbsp;</label>
+        <input type="number" th:field="*{priceT}" class="form-control"><br>
+
+        <button type="submit" class="btn btn-success">Add</button>
+    </div>
+
+</body>
+</html>

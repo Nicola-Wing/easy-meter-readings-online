@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration</title>
+    <!-- Main CSS -->
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <!-- Bootstrap 4.2.1 -->
+    <link rel="stylesheet" th:href="@{/css/plugins/bootstrap.min.css}"/>
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- ========== Start Navbar ========== -->
+<nav class="navbar navbar-expand-lg navbar-dark  fixed-top" style="background: rgba(0, 0, 0, 0.5);">
+    <div class="container">
+        <a class="navbar-brand" href="/"><img th:src="@{/img/logo.png}"/> EasyMRO</a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/" th:text="#{home}">Home
+                        <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about" th:text="#{about}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#price" th:text="#{price}">Price</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact" th:text="#{contact}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'?locale=ukr'}"><img th:src="@{/img/language/ukr.ico}"/></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'?locale=en'}"><img th:src="@{/img/language/en.ico}"/></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'?locale=ru'}"><img th:src="@{/img/language/ru.ico}"/></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login" th:text="#{login}">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- ========== End Navbar ========== -->
+<!-- ========== Start Form ========== -->
+<section class="contact" id="contact">
+    <div class="container text-center">
+        <h2 class="h2 mb-15" th:text="#{regTitle}">Register</h2>
+        <p class="p-bk mb-60" th:text="#{regMotivate}">Register in our system and start chill</p>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+
+                <form method="POST"  id="registerForm">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" placeholder="Username" name="username">
+                        </div>
+                        <div class="col-sm-12">
+                            <input type="password" class="form-control" placeholder="Password" name="password">
+                        </div>
+                    </div>
+                    <button class="btn btn-block" type="submit" th:text="#{regButton}">Register!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ========== End Form ========== -->
+
+<!--<form method="POST"  id="registerForm">
+    <label for="username">Username: </label>
+    <input type="text" name="username"/><br/>
+    <label for="password">Password: </label>
+    <input type="password" name="password"/><br/>
+    <input type="submit" value="Register"/>
+</form>-->
+
+<!-- ========== Start Footer ========== -->
+<footer class="footer">
+    <div class="container text-center text-white">
+        <h2><img th:src="@{/img/logo.png}" alt=""/> EasyMRO</h2>
+        <h2>Easy Meter Readings Online © 2021. All Rights Reserved.</h2>
+    </div>
+</footer>
+<!-- ========== End Footer ========== -->
+
+<!-- ========== JS ========== -->
+<script type="text/javascript" th:href="@{/js/plugins/jquery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:href="@{/js/plugins/bootstrap.min.js}"></script>
+<!-- Smooth Scrolling -->
+<script type="text/javascript" th:href="@{/js/plugins/jquery.smoothscroll.min.js}"></script>
+<!-- Magnific Popup -->
+<script type="text/javascript" th:href="@{/js/plugins/app.js}"></script>
+<script type="text/javascript" th:href="@{/js/main.js}"></script>
+</body>
+</html>

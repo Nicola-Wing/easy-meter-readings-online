@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Worker Edit</title>
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>-->
+    <style type="text/css">
+        body {
+            padding: 50px;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        input {
+        .border: 1px solid lightgray;
+            padding: 4px;
+            margin-top: 3px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5 md-5">
+    <h1>Edit</h1>
+
+    <form method="post" >
+        <div th:object="${worker}">
+
+            <label>First Name:&nbsp;</label>
+            <input type="text" th:field="*{firstNameW}" th:placeholder="${worker.firstNameW}"  class="form-control"><br>
+            <label>Last Name:&nbsp;</label>
+            <input type="text" th:field="*{lastNameW}" th:placeholder="${worker.lastNameW}"  class="form-control"><br>
+            <label>Info:&nbsp;</label>
+            <input type="text" th:field="*{infoW}" th:placeholder="${worker.infoW}"  class="form-control"><br>
+            <label>Mail:&nbsp;</label>
+            <input type="text" th:field="*{mailW}" th:placeholder="${worker.mailW}"  class="form-control"><br>
+            <label>Phone:&nbsp;</label>
+            <input type="text" th:field="*{phoneNumberW}" th:placeholder="${worker.phoneNumberW}"  class="form-control"><br>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>

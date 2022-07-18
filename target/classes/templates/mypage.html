@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Page</title>
+    <style type="text/css">
+        body {
+            padding: 50px;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        input {
+        .border: 1px solid lightgray;
+            padding: 4px;
+            margin-top: 3px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+<h1>My Info:</h1>
+<!--<div class="row">
+    <label>First Name:&nbsp;</label>
+    <span th:text="${user.firstNameU}">firstNameU</span><br>
+    <label>Last Name:&nbsp;</label>
+    <span th:text="${user.lastNameU}">lastNameU</span><br>
+    <label>Username:&nbsp;</label>
+    <span th:text="${user.username}">username</span><br>
+    <label>Mail:&nbsp;</label>
+    <span th:text="${user.mailU}">anyMail@gmail.com</span><br>
+    <label>Date of Reg:&nbsp;</label>
+    <span th:text="${user.dateRegU}">date</span><br>
+</div>
+<a th:href="'/user/edit/'+${user.getId()}">Изменить</a>
+<br><br>
+<h1>Tariffs:</h1>
+<table class="tariff">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Info</th>
+        <th>Price</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tar : ${tariffs}">
+        <td th:text="${tar.nameT}">Doe John</td>
+        <td th:text="${tar.infoT}">John</td>
+        <td th:text="${tar.priceT}">100</td>
+        <td><a th:href="'/user/tariff/pay/'+${tar.idT}">Pay</a></td>
+    </tr>
+    </tbody>
+</table>-->
+<h1>Электричество:</h1>
+Данные: Imp = 6400imp/(kW*h)
+<a href="/user/electricity/start">Снять показания</a>
+<!--<a th:href="/user/electricity/show">Снять показания</a>
+Секунд: <p name=seconds></p>
+<a th:href="/user/electricity/disable">Снять показания</a>-->
+</body>
+</html>

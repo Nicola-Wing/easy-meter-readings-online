@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new Worker</title>
+</head>
+<body>
+
+<h1>Register Worker</h1>
+<!--
+
+<form method="POST" th:action="@{/admin/worker/add}">
+    <label for="firstname">FirstName: </label>
+    <input type="text" name="firstname"/><br/>
+    <label for="lastname">LastName: </label>
+    <input type="text" name="lastname"/><br/>
+    <label for="password">Password: </label>
+    <input type="password" name="password"/><br/>
+    <label for="info">Info: </label>
+    <input type="text" name="info"/><br/>
+    <label for="mail">Mail: </label>
+    <input type="email" name="mail"/><br/>
+    <label for="phone">Tel: </label>
+    <input type="tel" name="phone"/><br/>
+    <input type="submit" value="Add Worker"/>
+</form>
+-->
+
+
+<form method="post" >
+    <div th:object="${worker}">
+        <label>First Name:&nbsp;</label>
+        <input type="text" th:field="*{firstNameW}" class="form-control"><br>
+        <label>Last Name:&nbsp;</label>
+        <input type="text" th:field="*{lastNameW}" class="form-control"><br>
+        <label>Password:&nbsp;</label>
+        <input type="password" th:field="*{passw}" class="form-control"><br>
+        <label>Info:&nbsp;</label>
+        <input type="text" th:field="*{infoW}" class="form-control"><br>
+        <label>Mail:&nbsp;</label>
+        <input type="email" th:field="*{mailW}" class="form-control"><br>
+        <label>Tel:&nbsp;</label>
+        <input type="tel" th:field="*{phoneNumberW}" class="form-control"><br>
+
+        <button type="submit" class="btn btn-success">Add</button>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,344 @@
+@startuml
+
+title __MODELS's Class Diagram__\n
+
+  namespace vera {
+    namespace models {
+      class vera.models.Admin {
+          ~ requests : List<Request>
+          - dateRegA : Date
+          - firstNameA : String
+          - idA : long
+          - lastNameA : String
+          - mailA : String
+          - passA : String
+          - photoA : String
+          + Admin()
+          + Admin()
+          + Admin()
+          + Admin()
+          + Admin()
+          + getFirstNameA()
+          + getLastNameA()
+          + getMailA()
+          + getPassA()
+          + getPhotoA()
+          + setDateRegA()
+          + setFirstNameA()
+          + setIdA()
+          + setLastNameA()
+          + setMailA()
+          + setPassA()
+          + setPhotoA()
+          + setRequests()
+          + toString()
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.Device {
+          ~ idD : long
+          ~ indications : List<Indication>
+          ~ serialNumber : String
+          ~ services : List<Service>
+          + Device()
+          + Device()
+          + getIdD()
+          + getSerialNumber()
+          + getType()
+          + getUser()
+          + setIdD()
+          + setIndications()
+          + setSerialNumber()
+          + setServices()
+          + setType()
+          + setUser()
+          + toString()
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      enum Type {
+        ColdWater
+        Electricity
+        Gas
+        Heating
+        HotWater
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.Indication {
+          - idI : long
+          - startI : Date
+          - valueI : double
+          + Indication()
+          + Indication()
+          + getDevice()
+          + getIdI()
+          + getStartI()
+          + getUser()
+          + getValueI()
+          + setDevice()
+          + setIdI()
+          + setStartI()
+          + setUser()
+          + setValueI()
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.PaidUpTariff {
+          - end : Date
+          - idP : long
+          - start : Date
+          + PaidUpTariff()
+          + PaidUpTariff()
+          + getEnd()
+          + getIdP()
+          + getStart()
+          + getTariff()
+          + getUser()
+          + setEnd()
+          + setIdP()
+          + setStart()
+          + setTariff()
+          + setUser()
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.Request {
+          - dateRequest : Date
+          - dateResponse : Date
+          - idR : long
+          - infoR : String
+          + Request()
+          + Request()
+          + getAdmin()
+          + getDateRequest()
+          + getDateResponse()
+          + getIdR()
+          + getInfoR()
+          + getUser()
+          + setAdmin()
+          + setDateRequest()
+          + setDateResponse()
+          + setIdR()
+          + setInfoR()
+          + setUser()
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.Service {
+          - dateS : Date
+          - idS : long
+          - infoS : String
+          - price : int
+          + Service()
+          + Service()
+          + getDateS()
+          + getDevice()
+          + getIdS()
+          + getInfoS()
+          + getPrice()
+          + getUser()
+          + getWorker()
+          + setDateS()
+          + setDevice()
+          + setIdS()
+          + setInfoS()
+          + setPrice()
+          + setUser()
+          + setWorker()
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.Tariff {
+          ~ idT : long
+          ~ infoT : String
+          ~ nameT : String
+          ~ paid : List<PaidUpTariff>
+          ~ priceT : int
+          + Tariff()
+          + Tariff()
+          + getIdT()
+          + getInfoT()
+          + getNameT()
+          + getPaid()
+          + getPriceT()
+          + setIdT()
+          + setInfoT()
+          + setNameT()
+          + setPaid()
+          + setPriceT()
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.User {
+          ~ device : List<Device>
+          ~ indications : List<Indication>
+          ~ requests : List<Request>
+          ~ services : List<Service>
+          ~ userTariffs : List<PaidUpTariff>
+          - dateRegU : Date
+          - firstNameU : String
+          - id : long
+          - lastNameU : String
+          - mailU : String
+          - password : String
+          - photoU : String
+          - username : String
+          + User()
+          + User()
+          + User()
+          + User()
+          + User()
+          + User()
+          + addDevice()
+          + deleteDevice()
+          + getAuthorities()
+          + getDateRegU()
+          + getFirstNameU()
+          + getId()
+          + getLastNameU()
+          + getListDevice()
+          + getMailU()
+          + getPassword()
+          + getPhotoU()
+          + getUserAuthorities()
+          + getUsername()
+          + isAccountNonExpired()
+          + isAccountNonLocked()
+          + isCredentialsNonExpired()
+          + isEnabled()
+          + preDelete()
+          + setDateRegU()
+          + setFirstNameU()
+          + setId()
+          + setLastNameU()
+          + setMailU()
+          + setPassword()
+          + setPhotoU()
+          + setUserAuthorities()
+          + setUserAuthorities()
+          + setUsername()
+          + toString()
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.UserAuthorities {
+          ~ authority : String
+          ~ id : long
+          + UserAuthorities()
+          + UserAuthorities()
+          + UserAuthorities()
+          + getAuthority()
+          + getId()
+          + setAuthority()
+          + setId()
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.Worker {
+          ~ services : List<Service>
+          - firstNameW : String
+          - idW : long
+          - infoW : String
+          - lastNameW : String
+          - mailW : String
+          - passw : String
+          - phoneNumberW : String
+          - photoW : String
+          + Worker()
+          + Worker()
+          + Worker()
+          + Worker()
+          + getFirstNameW()
+          + getIdW()
+          + getInfoW()
+          + getLastNameW()
+          + getMailW()
+          + getPassw()
+          + getPhoneNumberW()
+          + getPhotoW()
+          + getServices()
+          + getUserAuthorities()
+          + preDelete()
+          + setFirstNameW()
+          + setIdW()
+          + setInfoW()
+          + setLastNameW()
+          + setMailW()
+          + setPassw()
+          + setPhoneNumberW()
+          + setPhotoW()
+          + setServices()
+          + setUserAuthorities()
+          + toString()
+      }
+    }
+  }
+  
+
+  vera.models.Admin o-- vera.models.UserAuthorities : userAuthorities
+  vera.models.Device o-- vera.models.Device.Type : type
+  vera.models.Device o-- vera.models.User : user
+  vera.models.Device +-down- vera.models.Device.Type
+  vera.models.Indication o-- vera.models.Device : device
+  vera.models.Indication o-- vera.models.User : user
+  vera.models.PaidUpTariff o-- vera.models.Tariff : tariff
+  vera.models.PaidUpTariff o-- vera.models.User : user
+  vera.models.Request o-- vera.models.Admin : admin
+  vera.models.Request o-- vera.models.User : user
+  vera.models.Service o-- vera.models.Device : device
+  vera.models.Service o-- vera.models.User : user
+  vera.models.Service o-- vera.models.Worker : worker
+  vera.models.User .up.|> org.springframework.security.core.userdetails.UserDetails
+  vera.models.User o-- vera.models.UserAuthorities : userAuthorities
+  vera.models.Worker o-- vera.models.UserAuthorities : userAuthorities
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

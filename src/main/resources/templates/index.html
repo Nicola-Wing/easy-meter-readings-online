@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Home-1</title>
+        <!-- Main CSS -->
+        <link rel="stylesheet" th:href="@{/css/main.css}"/>
+        <!-- Google Font -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+        <!-- Bootstrap 4.2.1 -->
+     <link rel="stylesheet" th:href="@{/css/plugins/bootstrap.min.css}"/>
+        <!-- Magnific Popup -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        <!-- Font Awesome -->
+        <link
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            rel="stylesheet">
+
+    </head>
+    <body>
+        <!-- ========== Start Navbar ========== -->
+        <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" style="background: rgba(0, 0, 0, 0.5);">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><img th:src="@{/img/logo.png}"/> EasyMRO</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#slider" th:text="#{home}">Home
+                                <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about" th:text="#{about}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#price" th:text="#{price}">Price</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact" th:text="#{contact}">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{'?locale=ukr'}"><img th:src="@{/img/language/ukr.ico}"/></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{'?locale=en'}"><img th:src="@{/img/language/en.ico}"/></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{'?locale=ru'}"><img th:src="@{/img/language/ru.ico}"/></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login" th:text="#{login}">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- ========== End Navbar ========== -->
+
+        <!-- ========== Start Slider ========== -->
+        <section class="slider d-flex align-items-center" id="slider">
+            <div id="particles-js"></div>
+            <div class="container">
+                <div class="row d-flex align-items-center mt-60">
+                    <div class="col-lg-6">
+                        <div class="text">
+                            <h1 class="h1-w mb-20" th:text="#{title}">Automated accounting and control of consumer resources</h1>
+                            <p class="p-w mb-30" th:text="#{str2}">Our Wi-Fi controllers allow us to make smart already installed conventional meters of water, electricity, gas and heat, remotely control a variety of sensors. All connected devices are controlled via your smartphone. Our solutions are perfect for the automation of apartments, private and apartment buildings, hotels, hostels, SNT and large shopping centers.</p>
+                            <a href="register/user" class="btn-white d-inline-block" th:text="#{str13}">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="image d-flex justify-content-lg-end">
+                            <img th:src="@{/img/portfolio/slider-phone.png}" alt="slider-phone" class="img-fluid upDown"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ========== End Slider ========== -->
+
+        <!-- ========== Start About ========== -->
+        <section class="about m-section-120" id="about">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-lg-6">
+                        <div class="image pr-4">
+                            <img th:src="@{/img/portfolio/manage.svg}" alt="about" class="img-fluid"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="h2 mb-20" th:text="#{str7}">
+                            Building automation
+                            <br>
+                        </h2>
+                        <p class="p-bk mb-30">
+                        <p th:text="#{str8_1}">- Remote control of meter readings</p>
+                        <p th:text="#{str8_2}">- Metering of water, electricity, gas and heat</p>
+                        <p th:text="#{str8_3}">- Wireless data collection technologies and cheap implementation</p>
+                        <p th:text="#{str8_4}">- Cloud solution, integrations and data upload</p>
+                        </p>
+                        <a href="#" class="btn-color d-inline-block" th:text="#{button1}">Read More</a>
+                    </div>
+
+                    <div class="col-lg-6" style="background: #aeffe9;" >
+                        <br>
+                        <h2 class="h2 mb-20" th:text="#{str3}">
+                            Control remotely
+                            <br>
+                            </h2>
+                        <p class="p-bk mb-30" th:text="#{str4}">In our catalog you can select and buy compatible equipment for remote
+                            monitoring of resource consumption and control of sensors.
+                        </p>
+                    </div>
+
+                    <div class="col-lg-6" style="background: #d5c4ff;">
+                        <br>
+                        <h2 class="h2 mb-20" th:text="#{str5}">
+                            Personal account in a smartphone
+                            <br>
+                        </h2>
+                        <p class="p-bk mb-30" th:text="#{str6}">Graphs of resource consumption and sensor activation, system event
+                            log and a summary of all connected devices are always at hand.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- ========== End About ========== -->
+
+        <!-- ========== Start Price ========== -->
+        <section class="price mb-120" id="price">
+            <div class="container text-center">
+                <h2 class="h2 mb-15" th:text="#{str9}">Our Main Tariffs</h2>
+                <br><br>
+                <div class="row">
+                    <!-- Box-1 -->
+                    <div class="col-lg-4">
+                        <div class="box bx-shw">
+                            <h3 class="h3-bk mb-30" th:text="#{str10}">Basic</h3>
+                            <img th:src="@{/img/price/1.svg}" alt="" class="img-fluid w-80"/>
+                            <h4>4<span>$</span></h4>
+                            <h5 th:text="#{str11}">per month</h5>
+                            <ul>
+                                <li>
+                                    <p th:text="#{str12_1}">Pay the annual cost of renting</p>
+                                    <p th:text="#{str12_2}">the module per meter (48$ per year)</p>
+                                    <p th:text="#{str12_3}">and we do the installation for free.</p>
+
+                                </li>
+                            </ul>
+                            <a href="#" class="btn-color d-inline-block" th:text="#{str13}">Get Started</a>
+                        </div>
+                    </div>
+                    <!-- Box-2 -->
+                    <div class="col-lg-4">
+                        <div class="box bx-shw">
+                            <h3 class="h3-bk mb-30" th:text="#{str14}">Ultimate + 1</h3>
+                            <img th:src="@{/img/price/2.svg}" alt="" class="img-fluid w-80"/>
+                            <h4>16<span>$</span></h4>
+                            <h5>per month</h5>
+                            <ul>
+                                <li>
+                                    <p th:text="#{str15_1}">Install modules for 4 meters and we</p>
+                                    <p th:text="#{str15_2}">will provide you with one more</p>
+                                    <p th:text="#{str15_3}">module for any meter with a free tariff plan.</p>
+                                </li>
+                            </ul>
+                            <a href="#" class="btn-color d-inline-block" th:text="#{str13}">Get Started</a>
+                        </div>
+                    </div>
+                    <!-- Box-3 -->
+                    <div class="col-lg-4">
+                        <div class="box bx-shw">
+                            <h3 class="h3-bk mb-30" th:text="#{str16}">For Big Deals</h3>
+                            <img th:src="@{/img/price/3.svg}" alt="" class="img-fluid w-80"/>
+                            <h4>32<span>$</span></h4>
+                            <h5 th:text="#{str11}">per month</h5>
+                            <ul>
+                                <li>
+                                    <p  th:text="#{str17_1}">Install 8 modules</p>
+                                    <p  th:text="#{str17_2}">for year and </p>
+                                    <p  th:text="#{str17_3}">the 1st month is free.</p>
+                                </li>
+                            </ul>
+                            <a href="#" class="btn-color d-inline-block" th:text="#{str13}">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ========== End Price ========== -->
+
+        <!-- ========== Start Contact ========== -->
+        <section class="contact" id="contact">
+            <div class="container text-center">
+                <h2 class="h2 mb-15" th:text="#{str18}">Keep In Touch</h2>
+                <p class="p-bk mb-60" th:text="#{str19}">Contact us and we will answer your question</p>
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" placeholder="Name">
+                                </div>
+                                <div class="col-sm-12">
+                                    <input type="email" class="form-control" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="5" id="comment" placeholder="Message"></textarea>
+                            </div>
+                            <button class="btn btn-block" type="submit" th:text="#{str20}">Send Now!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ========== End Contact ========== -->
+
+        <!-- ========== Start Footer ========== -->
+        <footer class="footer">
+            <div class="container text-center text-white">
+                <h2><img th:src="@{/img/logo.png}" alt=""/> EasyMRO</h2>
+                <h2>Easy Meter Readings Online © 2021. All Rights Reserved.</h2>
+            </div>
+        </footer>
+        <!-- ========== End Footer ========== -->
+
+        <!-- ========== JS ========== -->
+        <script type="text/javascript" th:href="@{/js/plugins/jquery-3.3.1.min.js}"></script>
+        <script type="text/javascript" th:href="@{/js/plugins/bootstrap.min.js}"></script>
+        <!-- Smooth Scrolling -->
+        <script type="text/javascript" th:href="@{/js/plugins/jquery.smoothscroll.min.js}"></script>
+        <!-- Magnific Popup -->
+        <script type="text/javascript" th:href="@{/js/plugins/app.js}"></script>
+        <script type="text/javascript" th:href="@{/js/main.js}"></script>
+    </body>
+</html>

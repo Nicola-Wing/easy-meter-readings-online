@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Cabinet</title>
+    <!-- Main CSS -->
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <!-- Bootstrap 4.2.1 -->
+    <link rel="stylesheet" th:href="@{/css/plugins/bootstrap.min.css}"/>
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- ========== Start Navbar ========== -->
+<nav class="navbar navbar-expand-lg navbar-dark  fixed-top" style="background: rgba(0, 0, 0, 0.5);">
+    <div class="container">
+        <a class="navbar-brand" href="/"><img th:src="@{/img/logo.png}"/> EasyMRO</a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/" th:text="#{home}">Home
+                        <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about" th:text="#{about}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#price" th:text="#{price}">Price</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact" th:text="#{contact}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'?locale=ukr'}"><img th:src="@{/img/language/ukr.ico}"/></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'?locale=en'}"><img th:src="@{/img/language/en.ico}"/></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'?locale=ru'}"><img th:src="@{/img/language/ru.ico}"/></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout" th:text="#{logout}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- ========== End Navbar ========== -->
+<section class="about m-section-120" id="about">
+    <div class="container">
+        <h1 class="h1-b mb-20" th:text="#{users}">Users:</h1>
+        <table class="users table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Mail</th>
+                <th>Username(Login)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}">1</td>
+                <td th:text="${user.firstNameU}">John</td>
+                <td th:text="${user.lastNameU}">Doe</td>
+                <td th:text="${user.mailU}">anyMail@gmail.com</td>
+                <td th:text="${user.username}">DoeJohn</td>
+                <td>
+                    <a th:href="'/admin/user/id='+${user.getId()}">Посмотреть</a>
+                </td>
+                <td>
+                    <a th:href="'/admin/user/edit/'+${user.getId()}">Изменить</a>
+                </td>
+                <td>
+                    <a th:href="'/admin/user/delete/'+${user.getId()}">Удалить</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h1 class="h1-b mb-20" th:text="#{workers}">Workers:</h1>
+        <form method="get">
+            <a href="/admin/worker/add">Добавить</a>
+        </form>
+
+        <table class="workers table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Mail</th>
+                <th>Phone</th>
+                <th>Info</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="worker : ${workers}">
+                <td th:text="${worker.idW}">1</td>
+                <td th:text="${worker.firstNameW}">John</td>
+                <td th:text="${worker.lastNameW}">Doe</td>
+                <td th:text="${worker.mailW}">anyMail@gmail.com</td>
+                <td th:text="${worker.phoneNumberW}">DoeJohn</td>
+                <td th:text="${worker.infoW}">DoeJohn</td>
+                <td>
+                    <a th:href="@{/admin/worker(id=${worker.idW})}" href="worker.html">Посмотреть</a>
+                </td>
+                <td>
+                    <a th:href="'/admin/worker/edit/'+${worker.getIdW()}">Изменить</a>
+                </td>
+                <td>
+                    <a th:href="'/admin/worker/delete/'+${worker.getIdW()}">Удалить</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h1 class="h1-b mb-20" th:text="#{services}">Services:</h1>
+        <table class="services table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>User</th>
+                <th>Worker</th>
+                <th>Device</th>
+                <th>Type</th>
+                <th>Info</th>
+                <th>Date</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="service : ${services}">
+                <td th:text="${service.idS}">1</td>
+                <td th:text="${service.user.username}">John</td>
+                <td th:text="${service.worker.firstNameW}+' '+${service.worker.lastNameW}">Doe John</td>
+                <td th:text="${service.device.serialNumber}">123456789</td>
+                <td th:text="${service.device.type}">Type</td>
+                <td th:text="${service.infoS}">Info</td>
+                <td th:text="${service.dateS}">Date</td>
+                <td th:text="${service.price}">Price</td>
+            </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h1 class="h1-b mb-20" th:text="#{requests}">Requests:</h1>
+        <a th:href="'/admin/request/add/'">Создать</a>
+        <table class="requests table">
+            <thead>
+            <tr>
+                <th>MailU</th>
+                <th>First & Last Name</th>
+                <th>Request Info</th>
+                <th>DateStart</th>
+                <th>DateEnd</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="req : ${requests}">
+                <td th:text="${req.user.mailU}">1</td>
+                <td th:text="${req.user.firstNameU}+' '+${req.user.lastNameU}">Doe John</td>
+                <td th:text="${req.infoR}">John</td>
+                <td th:text="${req.dateRequest}">123456789</td>
+                <td th:text="${req.dateResponse}">123456789</td>
+                <td><a th:href="'/admin/request/done/'+${req.idR}">Done</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h1 class="h1-b mb-20" th:text="#{tariffs}">Tariffs:</h1>
+        <a th:href="'/admin/tariff/add/'">Создать</a>
+        <table class="tariff table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Info</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="tar : ${tariffs}">
+                <td th:text="${tar.idT}">1</td>
+                <td th:text="${tar.nameT}">Doe John</td>
+                <td th:text="${tar.infoT}">John</td>
+                <td th:text="${tar.priceT}">100</td>
+                <td><a th:href="'/admin/tariff/delete/'+${tar.idT}">Delete</a></td>
+                <td><a th:href="'/admin/tariff/edit/'+${tar.idT}">Edit</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ========== Start Footer ========== -->
+<footer class="footer">
+    <div class="container text-center text-white">
+        <h2><img th:src="@{/img/logo.png}" alt=""/> EasyMRO</h2>
+        <h2>Easy Meter Readings Online © 2021. All Rights Reserved.</h2>
+    </div>
+</footer>
+<!-- ========== End Footer ========== -->
+
+<!-- ========== JS ========== -->
+<script type="text/javascript" th:href="@{/js/plugins/jquery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:href="@{/js/plugins/bootstrap.min.js}"></script>
+<!-- Smooth Scrolling -->
+<script type="text/javascript" th:href="@{/js/plugins/jquery.smoothscroll.min.js}"></script>
+<!-- Magnific Popup -->
+<script type="text/javascript" th:href="@{/js/plugins/app.js}"></script>
+<script type="text/javascript" th:href="@{/js/main.js}"></script>
+</body>
+</html>

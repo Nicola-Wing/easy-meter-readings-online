@@ -1,0 +1,288 @@
+@startuml
+
+title __TEST_PROJECT's Class Diagram__\n
+
+  namespace vera {
+    class vera.SpringBootTomcatApplication {
+    }
+  }
+  
+
+  namespace vera {
+    class vera.StartApp {
+    }
+  }
+  
+
+  namespace vera {
+    namespace controllers {
+      class vera.controllers.AdminController {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace controllers {
+      class vera.controllers.GeneralController {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace controllers {
+      class vera.controllers.RegisterController {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace controllers {
+      class vera.controllers.UserController {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace controllers {
+      class vera.controllers.WorkerController {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.Admin {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.Device {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.Indication {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.PaidUpTariff {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.Request {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.Service {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.Tariff {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.User {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.UserAuthorities {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace models {
+      class vera.models.Worker {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace repo {
+      interface vera.repo.AdminRepo {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace repo {
+      interface vera.repo.DeviceRepo {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace repo {
+      interface vera.repo.IndicationRepo {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace repo {
+      interface vera.repo.PaidUpTariffsRepo {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace repo {
+      interface vera.repo.RequestRepo {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace repo {
+      interface vera.repo.ServiceRepo {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace repo {
+      interface vera.repo.TariffRepo {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace repo {
+      interface vera.repo.UserAuthoritiesRepo {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace repo {
+      interface vera.repo.UserRepo {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace repo {
+      interface vera.repo.WorkerRepo {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace security {
+      class vera.security.RegistrationForm {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace security {
+      class vera.security.SecurityConfig {
+      }
+    }
+  }
+  
+
+  namespace vera {
+    namespace utils {
+      class vera.utils.BackUpRepo {
+      }
+    }
+  }
+  
+
+  vera.SpringBootTomcatApplication -up-|> org.springframework.boot.web.servlet.support.SpringBootServletInitializer
+  vera.controllers.AdminController o-- vera.repo.AdminRepo : adminRepo
+  vera.controllers.AdminController o-- vera.repo.DeviceRepo : deviceRepo
+  vera.controllers.AdminController o-- vera.repo.IndicationRepo : indicationRepo
+  vera.controllers.AdminController o-- vera.repo.PaidUpTariffsRepo : paidUpTariffsRepo
+  vera.controllers.AdminController o-- vera.repo.RequestRepo : requestRepo
+  vera.controllers.AdminController o-- vera.repo.ServiceRepo : serviceRepo
+  vera.controllers.AdminController o-- vera.repo.TariffRepo : tariffRepo
+  vera.controllers.AdminController o-- vera.repo.UserAuthoritiesRepo : userAuthoritiesRepo
+  vera.controllers.AdminController o-- vera.repo.UserRepo : userRepo
+  vera.controllers.AdminController o-- vera.repo.WorkerRepo : workerRepo
+  vera.controllers.RegisterController o-- vera.repo.UserAuthoritiesRepo : userAuthoritiesRepo
+  vera.controllers.RegisterController o-- vera.repo.UserRepo : userRepo
+  vera.controllers.RegisterController o-- vera.repo.WorkerRepo : workerRepo
+  vera.controllers.UserController o-- vera.repo.TariffRepo : tariffRepo
+  vera.controllers.UserController o-- vera.models.User : user
+  vera.controllers.UserController o-- vera.repo.UserRepo : userRepo
+  vera.controllers.WorkerController o-- vera.repo.DeviceRepo : deviceRepo
+  vera.controllers.WorkerController o-- vera.repo.ServiceRepo : serviceRepo
+  vera.controllers.WorkerController o-- vera.repo.UserRepo : userRepo
+  vera.controllers.WorkerController o-- vera.models.Worker : worker
+  vera.controllers.WorkerController o-- vera.repo.WorkerRepo : workerRepo
+  vera.models.Admin o-- vera.models.UserAuthorities : userAuthorities
+  vera.models.Device o-- vera.models.Device.Type : type
+  vera.models.Device o-- vera.models.User : user
+  vera.models.Indication o-- vera.models.Device : device
+  vera.models.Indication o-- vera.models.User : user
+  vera.models.PaidUpTariff o-- vera.models.Tariff : tariff
+  vera.models.PaidUpTariff o-- vera.models.User : user
+  vera.models.Request o-- vera.models.Admin : admin
+  vera.models.Request o-- vera.models.User : user
+  vera.models.Service o-- vera.models.Device : device
+  vera.models.Service o-- vera.models.User : user
+  vera.models.Service o-- vera.models.Worker : worker
+  vera.models.User .up.|> org.springframework.security.core.userdetails.UserDetails
+  vera.models.User o-- vera.models.UserAuthorities : userAuthorities
+  vera.models.Worker o-- vera.models.UserAuthorities : userAuthorities
+  vera.security.SecurityConfig -up-|> org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

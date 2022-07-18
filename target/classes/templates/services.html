@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Worker Cabinet</title>
+    <!-- Main CSS -->
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <!-- Bootstrap 4.2.1 -->
+    <link rel="stylesheet" th:href="@{/css/plugins/bootstrap.min.css}"/>
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <!-- Font Awesome -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- ========== Start Navbar ========== -->
+<nav class="navbar navbar-expand-lg navbar-dark  fixed-top" style="background: rgba(0, 0, 0, 0.5);">
+    <div class="container">
+        <a class="navbar-brand" href="/"><img th:src="@{/img/logo.png}"/> EasyMRO</a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/" th:text="#{home}">Home
+                        <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about" th:text="#{about}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#price" th:text="#{price}">Price</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact" th:text="#{contact}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'?locale=ukr'}"><img th:src="@{/img/language/ukr.ico}"/></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'?locale=en'}"><img th:src="@{/img/language/en.ico}"/></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'?locale=ru'}"><img th:src="@{/img/language/ru.ico}"/></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout" th:text="#{logout}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- ========== End Navbar ========== -->
+<!-- ========== Start Add Service Section ========== -->
+<section class="contact" id="contact">
+    <div class="container text-center">
+
+        <h2 class="h2 mb-15">Add service</h2>
+        <p class="p-bk mb-60">...</p>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+
+                <form method="post" th:action="@{/worker/service/add}">
+                    <div th:object="${serviceForManipulaiting}">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <input type="email" name="usermail" class="form-control" placeholder="User`s Mail">
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="email" name="workermail" class="form-control" placeholder="Worker`s Mail">
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="text" name="serialnumber" class="form-control" placeholder="Serial Number">
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="number" th:field="*{price}" class="form-control" placeholder="Price">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" id="comment" th:field="*{infoS}" placeholder="Info"></textarea>
+                        </div>
+                        <button class="btn btn-block" type="submit"> + </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- ========== End Add Service Section ========== -->
+<!-- ========== Start About ========== -->
+<section class="about m-section-120" id="about">
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-6">
+                <div class="image pr-4 d-flex align-items-center">
+                    <img th:src="@{/img/features/fe-1.png}" alt="about" class="img-fluid"/>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="h2 mb-20">
+                    My Info
+                    <br>
+                </h2>
+                <p class="p-bk mb-30">
+                    <span th:text="${worker.firstNameW}">John</span><br>
+                    <span th:text="${worker.lastNameW}">Doe</span><br>
+                    <span th:text="${worker.infoW}">speciality</span><br>
+                    <span th:text="${worker.mailW}">anyMail@gmail.com</span><br>
+                    <span th:text="${worker.phoneNumberW}">phone</span><br>
+                </p>
+                <a th:href="'/worker/edit/'+${worker.getIdW()}" class="btn-color d-inline-block">Change</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <h1 class="h1-b mb-20">Services performed by me:</h1>
+        <table class="services">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>User</th>
+                <th>Worker</th>
+                <th>Device</th>
+                <th>Type</th>
+                <th>Info</th>
+                <th>Price</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${services!=null}" th:each="service : ${services}">
+                <td th:text="${service.idS}">1</td>
+                <td th:text="${service.user.username}">John</td>
+                <td th:text="${service.worker.firstNameW}+' '+${service.worker.lastNameW}">Doe</td>
+                <td th:text="${service.device.serialNumber}">anyMail@gmail.com</td>
+                <td th:text="${service.device.type}">DoeJohn</td>
+                <td th:text="${service.infoS}">DoeJohn</td>
+                <td th:text="${service.price}">DoeJohn</td>
+                <td th:text="${service.dateS}">DoeJohn</td>
+                <td>
+                    <a th:href="'/worker/service/edit/'+${service.getIdS()}">Изменить</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <br><br>
+    </div>
+
+</section>
+<!-- ========== End About ========== -->
+
+
+<!-- ========== Start Footer ========== -->
+<footer class="footer">
+    <div class="container text-center text-white">
+        <h2><img th:src="@{/img/logo.png}" alt=""/> EasyMRO</h2>
+        <h2>Easy Meter Readings Online © 2021. All Rights Reserved.</h2>
+    </div>
+</footer>
+<!-- ========== End Footer ========== -->
+
+<!-- ========== JS ========== -->
+<script type="text/javascript" th:href="@{/js/plugins/jquery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:href="@{/js/plugins/bootstrap.min.js}"></script>
+<!-- Smooth Scrolling -->
+<script type="text/javascript" th:href="@{/js/plugins/jquery.smoothscroll.min.js}"></script>
+<!-- Magnific Popup -->
+<script type="text/javascript" th:href="@{/js/plugins/app.js}"></script>
+<script type="text/javascript" th:href="@{/js/main.js}"></script>
+</body>
+</html>

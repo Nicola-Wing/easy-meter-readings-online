@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>-->
+    <style type="text/css">
+        body {
+            padding: 50px;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        input {
+        .border: 1px solid lightgray;
+            padding: 4px;
+            margin-top: 3px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5 md-5">
+    <h1>Edit</h1>
+
+    <form method="post" >
+        <div th:object="${service}">
+            <label>Id:&nbsp;</label>
+            <input type="text" th:field="*{idS}" th:value="${service.idS}"  class="form-control"><br>
+            <label>User:&nbsp;</label>
+            <input type="text" name="usermail" th:value="${service.user.mailU}"  class="form-control"><br>
+            <label>Worker:&nbsp;</label>
+            <input type="text" name="workermail" th:value="${service.worker.mailW}"  class="form-control"><br>
+            <label>Device serialnumber:&nbsp;</label>
+            <input type="text" name="serialnumber" th:value="${service.device.serialNumber}"  class="form-control"><br>
+            <label>Id:&nbsp;</label>
+            <input type="text" th:field="*{infoS}" th:placeholder="${service.infoS}"  class="form-control"><br>
+            <label>Price:&nbsp;</label>
+            <input type="text" th:field="*{price}" th:placeholder="${service.price}"  class="form-control"><br>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>

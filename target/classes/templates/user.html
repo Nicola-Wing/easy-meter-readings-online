@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Page</title>
+    <style type="text/css">
+        body {
+            padding: 50px;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        input:read-only {
+            background: lightgray;
+        }
+
+        .row {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>User Info:</h1>
+
+<div class="row">
+    <label>Name:&nbsp;</label>
+    <span th:text="${user.username}">DoeJohn</span><br>
+    <label>First Name:&nbsp;</label>
+    <span th:text="${user.firstNameU}">John</span><br>
+    <label>Last Name:&nbsp;</label>
+    <span th:text="${user.lastNameU}">Doe</span><br>
+    <label>Mail:&nbsp;</label>
+    <span th:text="${user.mailU}">anyMail@gmail.com</span><br>
+</div>
+
+<h1>User`s device Info:</h1>
+
+<table class="device">
+    <thead>
+    <tr>
+        <th>SerialNumber</th>
+        <th>Type</th>
+    </tr>
+    </thead>
+    <tbody>
+
+        <tr th:if="${usersDevices!=null}" th:each="dev: ${usersDevices}">
+
+            <td  th:text="${dev.serialNumber}">serialNumber</td>
+            <td th:text="${dev.type}">type</td>
+            <td>
+                <a th:href="@{/admin/device(id=${dev.idD})}" href="device.html">Посмотреть</a>
+            </td>
+            <td>
+                <a th:href="'/admin/deviceEdit/'+${dev.getIdD()}">Изменить</a>
+            </td>
+            <td>
+                <a th:href="'/admin/deviceDelete/'+${dev.getIdD()}">Удалить</a>
+            </td>
+            <td>
+                <a th:href="'/admin/user/deviceOff/'+${dev.getIdD()}">Отключить</a>
+            </td>
+        </tr>
+
+
+    </tbody>
+</table>
+
+<h1>FreeDevices:</h1>
+
+<table class="device">
+    <thead>
+    <tr>
+        <th>SerialNumber</th>
+        <th>Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="dev: ${freeDev}">
+        <td th:text="${dev.serialNumber}">serialNumber</td>
+        <td th:text="${dev.type}">type</td>
+        <td>
+            <a th:href="'/admin/deviceEdit/'+${dev.getIdD()}">Изменить</a>
+        </td>
+        <td>
+            <a th:href="'/admin/user/deviceOn/'+${dev.getIdD()}+'/'+${user.getId()}">Подключить</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
